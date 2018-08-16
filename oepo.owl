@@ -707,6 +707,26 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     
 
 
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#AcquisitionSessionPhenomobileDocument -->
+
+    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#AcquisitionSessionPhenomobileDocument">
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Document"/>
+        <rdfs:label xml:lang="en">Acquisition Session Phenomobile Document</rdfs:label>
+        <rdfs:label xml:lang="fr">Document de Session d&apos;Acquisition de Phénomobile</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#AcquisitionSessionUAVDocument -->
+
+    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#AcquisitionSessionUAVDocument">
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Document"/>
+        <rdfs:label xml:lang="en">Acquisition Session UAV Document</rdfs:label>
+        <rdfs:label xml:lang="fr">Document de Session d&apos;Acquisition de Drone</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#Actuator -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Actuator">
