@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://www.phenome-fppn.fr/vocabulary/2017"
      xml:base="http://www.phenome-fppn.fr/vocabulary/2017"
+     xmlns:vocabulary="http://www.phenome-fppn.fr/vocabulary/2017#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -122,6 +123,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
 
     <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#dateOfLastCalibration">
         <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasDate"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Device"/>
     </owl:ObjectProperty>
     
 
@@ -130,6 +132,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
 
     <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#dateOfPurchase">
         <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasDate"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Device"/>
     </owl:ObjectProperty>
     
 
@@ -151,9 +154,40 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     
 
 
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasAdministrativeContact -->
+
+    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasAdministrativeContact">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasContact"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Experiment"/>
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Project"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:label xml:lang="en">administrative contact</rdfs:label>
+        <rdfs:label xml:lang="fr">contact administratif</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasBrand -->
 
-    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasBrand"/>
+    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasBrand">
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Device"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasContact -->
+
+    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasContact">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:label xml:lang="en">contact</rdfs:label>
+        <rdfs:label xml:lang="fr">correspondant</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
@@ -172,8 +206,16 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
 
     <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasExperiment">
         <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasPart"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2018/oepo#Project"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Project"/>
         <rdfs:range rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Experiment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasLens -->
+
+    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasLens">
+        <rdfs:range rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Lens"/>
     </owl:ObjectProperty>
     
 
@@ -191,7 +233,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
 
     <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasOptic">
         <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#SensingDevice"/>
-        <rdfs:range rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Optic"/>
+        <rdfs:range rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Lens"/>
     </owl:ObjectProperty>
     
 
@@ -212,6 +254,81 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Experiment"/>
         <rdfs:range rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Plot"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasProjectCoordinator -->
+
+    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasProjectCoordinator">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasContact"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Experiment"/>
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Project"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:label xml:lang="fr">coordinateur</rdfs:label>
+        <rdfs:label xml:lang="en">coordinator</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasScientificContact -->
+
+    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasScientificContact">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasContact"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Experiment"/>
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Project"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:label xml:lang="fr">contact scientifique</rdfs:label>
+        <rdfs:label xml:lang="en">scientific contact</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasScientificSupervisor -->
+
+    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasScientificSupervisor">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasContact"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Experiment"/>
+        <rdfs:label xml:lang="en">has scientific supervisor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasTechnicalContact -->
+
+    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasTechnicalContact">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasContact"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Device"/>
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Experiment"/>
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Project"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:label xml:lang="fr">contact technique</rdfs:label>
+        <rdfs:label xml:lang="en">technical contact</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasTechnicalSupervisor -->
+
+    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasTechnicalSupervisor">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasContact"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Experiment"/>
+        <rdfs:label xml:lang="en">has technical supervisor</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -238,6 +355,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
 
     <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#inServiceDate">
         <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasDate"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Device"/>
     </owl:ObjectProperty>
     
 
@@ -257,94 +375,6 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     
 
 
-    <!-- http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasAdministrativeContact -->
-
-    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasAdministrativeContact">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasContact"/>
-        <rdfs:label xml:lang="en">administrative contact</rdfs:label>
-        <rdfs:label xml:lang="fr">contact administratif</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasContact -->
-
-    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasContact">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Experiment"/>
-                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2018/oepo#Project"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
-        <rdfs:label xml:lang="en">contact</rdfs:label>
-        <rdfs:label xml:lang="fr">correspondant</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasProjectCoordinator -->
-
-    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasProjectCoordinator">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasContact"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Experiment"/>
-                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2018/oepo#Project"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:label xml:lang="fr">coordinateur</rdfs:label>
-        <rdfs:label xml:lang="en">coordinator</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasScientificContact -->
-
-    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasScientificContact">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasContact"/>
-        <rdfs:label xml:lang="fr">contact scientifique</rdfs:label>
-        <rdfs:label xml:lang="en">scientific contact</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasScientificSupervisor -->
-
-    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasScientificSupervisor">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasContact"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Experiment"/>
-        <rdfs:label xml:lang="en">has scientific supervisor</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasTechnicalContact -->
-
-    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasTechnicalContact">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasContact"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#ExperimentalCondition"/>
-        <rdfs:label xml:lang="fr">contact technique</rdfs:label>
-        <rdfs:label xml:lang="en">technical contact</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasTechnicalSupervisor -->
-
-    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasTechnicalSupervisor">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2018/oepo#hasContact"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Experiment"/>
-        <rdfs:label xml:lang="en">has technical supervisor</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -356,23 +386,12 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     
 
 
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#RGBequivalentWavelength -->
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#aperture -->
 
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#RGBequivalentWavelength">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#VNIRCamera"/>
-        <rdfs:label xml:lang="en">RGB equivalent wavelength (central wavelength, nm)</rdfs:label>
-        <rdfs:label xml:lang="fr">bandes équivalentes RGB (longueur d&apos;onde centrale, nm)</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#apperture -->
-
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#apperture">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Optic"/>
-        <rdfs:label xml:lang="en">apperture (fnumber)</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#aperture">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Lens"/>
+        <rdfs:label xml:lang="en">aperture (fnumber)</rdfs:label>
         <rdfs:label xml:lang="fr">ouverture (fnumber)</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -381,7 +400,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#attenuatorFilter -->
 
     <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#attenuatorFilter">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
         <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#MultispectralCamera"/>
         <rdfs:label xml:lang="en">attenuator filter</rdfs:label>
         <rdfs:label xml:lang="fr">filtre atténuateur</rdfs:label>
@@ -392,7 +411,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#dateOfLastCalibration -->
 
     <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#dateOfLastCalibration">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasDate"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
     </owl:DatatypeProperty>
     
 
@@ -400,36 +419,49 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#dateOfPurchase -->
 
     <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#dateOfPurchase">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasDate"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#focal -->
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty -->
 
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#focal">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#focalLength -->
+
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#focalLength">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Lens"/>
                     <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#MultispectralCamera"/>
-                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Optic"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:label xml:lang="en">focal (mm)</rdfs:label>
-        <rdfs:label xml:lang="fr">focale (mm)</rdfs:label>
+        <rdfs:label xml:lang="en">focal length (mm)</rdfs:label>
+        <rdfs:label xml:lang="fr">longueur focale (mm)</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#halfOpeningAngle -->
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#halfFieldOfView -->
 
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#halfOpeningAngle">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Spectro"/>
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#halfFieldOfView">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#LiDAR"/>
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Spectrometer"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:label xml:lang="fr">demi angle d&apos;ouverture (°)</rdfs:label>
-        <rdfs:label xml:lang="en">half opening angle (°)</rdfs:label>
+        <rdfs:label xml:lang="en">half field of view (°)</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -437,7 +469,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasAcronym -->
 
     <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasAcronym">
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2018/oepo#Project"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Project"/>
         <rdfs:label xml:lang="fr">acronyme</rdfs:label>
         <rdfs:label xml:lang="en">has acronym</rdfs:label>
     </owl:DatatypeProperty>
@@ -457,7 +489,9 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
 
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasBrand -->
 
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasBrand"/>
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasBrand">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -484,8 +518,22 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasSerialNumber -->
 
     <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasSerialNumber">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Device"/>
         <rdfs:label xml:lang="fr">numéro de série</rdfs:label>
         <rdfs:label xml:lang="en">serial number</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#height -->
+
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#height">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Camera"/>
+        <rdfs:comment>this is the number of pixels per row. The value should be in pixels.</rdfs:comment>
+        <rdfs:label xml:lang="en">height (pixels)</rdfs:label>
+        <rdfs:label xml:lang="fr">nombre de pixels en ligne (pixels)</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -493,7 +541,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#inServiceDate -->
 
     <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#inServiceDate">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasDate"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
     </owl:DatatypeProperty>
     
 
@@ -501,8 +549,8 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#maxWavelength -->
 
     <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#maxWavelength">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Spectro"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Spectrometer"/>
         <rdfs:label xml:lang="fr">longueur d&apos;onde maximale (nm)</rdfs:label>
         <rdfs:label xml:lang="en">max wavelength (nm)</rdfs:label>
     </owl:DatatypeProperty>
@@ -512,32 +560,10 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#minWavelength -->
 
     <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#minWavelength">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Spectro"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Spectrometer"/>
         <rdfs:label xml:lang="fr">longueur d&apos;onde minimale (nm)</rdfs:label>
         <rdfs:label xml:lang="en">minimum wavelength (nm)</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#numberOfPixelsPerColumn -->
-
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#numberOfPixelsPerColumn">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Camera"/>
-        <rdfs:label xml:lang="fr">nombre de pixels en colonne</rdfs:label>
-        <rdfs:label xml:lang="en">number of pixels per column</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#numberOfPixelsPerRow -->
-
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#numberOfPixelsPerRow">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Camera"/>
-        <rdfs:label xml:lang="fr">nombre de pixels en ligne</rdfs:label>
-        <rdfs:label xml:lang="en">number of pixels per row</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -554,38 +580,65 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#pixelSize -->
 
     <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#pixelSize">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
         <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Camera"/>
-        <rdfs:label xml:lang="en">pixel size in μm</rdfs:label>
+        <rdfs:label xml:lang="en">pixel size (μm)</rdfs:label>
         <rdfs:label xml:lang="fr">taille du pixel en μm</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#scanAngle -->
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#scanAngularResolution -->
 
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#scanAngle">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#scanAngularResolution">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
         <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#LiDAR"/>
-        <rdfs:label xml:lang="en">scan angle</rdfs:label>
-        <rdfs:label xml:lang="fr">scan angle</rdfs:label>
+        <rdfs:label xml:lang="fr">résolution angulaire du scan (°)</rdfs:label>
+        <rdfs:label xml:lang="en">scan angular resolution (°)</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty -->
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#scanningAngularRange -->
 
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#scanningAngularRange">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#LiDAR"/>
+        <rdfs:label xml:lang="fr">Demi angle de scan (°)</rdfs:label>
+        <rdfs:label xml:lang="en">scanning angular range (°)</rdfs:label>
+    </owl:DatatypeProperty>
     
 
 
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#spectralSamplingInterval -->
 
     <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#spectralSamplingInterval">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Spectro"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Spectrometer"/>
         <rdfs:label xml:lang="fr">intervale d&apos;échantillonnage spectral</rdfs:label>
         <rdfs:label xml:lang="en">spectral sampling interval</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#spotHeight -->
+
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#spotHeight">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#LiDAR"/>
+        <rdfs:label xml:lang="fr">hauteur de la tâche (°)</rdfs:label>
+        <rdfs:label xml:lang="en">spot height (°)</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#spotWidth -->
+
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#spotWidth">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#LiDAR"/>
+        <rdfs:label xml:lang="fr">Largeur de la tâche (°)</rdfs:label>
+        <rdfs:label xml:lang="en">spot width (°)</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -596,10 +649,28 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     
 
 
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#waveband -->
+
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#waveband">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#MultispectralCamera"/>
+                    <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#TIRCamera"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:label xml:lang="fr">bande (longueur d&apos;onde centrale)</rdfs:label>
+        <rdfs:label xml:lang="en">waveband (central wavelength)</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#wavelength -->
 
     <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#wavelength">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#sensorProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -614,11 +685,14 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     
 
 
-    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#width -->
 
-    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topDataProperty">
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Plot"/>
-    </rdf:Description>
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#width">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Camera"/>
+        <rdfs:label xml:lang="fr">nombre de pixels en colonne (pixels)</rdfs:label>
+        <rdfs:label xml:lang="en">width (pixel)</rdfs:label>
+    </owl:DatatypeProperty>
     
 
 
@@ -630,6 +704,26 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#AcquisitionSessionPhenomobileDocument -->
+
+    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#AcquisitionSessionPhenomobileDocument">
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Document"/>
+        <rdfs:label xml:lang="en">Acquisition Session Phenomobile Document</rdfs:label>
+        <rdfs:label xml:lang="fr">Document de Session d&apos;Acquisition de Phénomobile</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#AcquisitionSessionUAVDocument -->
+
+    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#AcquisitionSessionUAVDocument">
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Document"/>
+        <rdfs:label xml:lang="en">Acquisition Session UAV Document</rdfs:label>
+        <rdfs:label xml:lang="fr">Document de Session d&apos;Acquisition de Drone</rdfs:label>
+    </owl:Class>
     
 
 
@@ -688,6 +782,24 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Camera">
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#SensingDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#pixelSize"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#height"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#width"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -974,6 +1086,24 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#HemisphericalCamera">
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Camera"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#height"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#pixelSize"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#width"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="fr">caméra hémisphérique</rdfs:label>
         <rdfs:label xml:lang="en">hemispherical camera</rdfs:label>
     </owl:Class>
@@ -1014,6 +1144,24 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#HyperspectralCamera">
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Camera"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#height"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#pixelSize"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#width"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="fr">caméra hyperspectrale</rdfs:label>
         <rdfs:label xml:lang="en">hyperspectral camera</rdfs:label>
     </owl:Class>
@@ -1037,12 +1185,49 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     
 
 
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#Installation -->
+
+    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Installation">
+        <rdfs:label xml:lang="en">Installation</rdfs:label>
+        <rdfs:label xml:lang="fr">Installation</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#IrrigationSystem -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#IrrigationSystem">
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Actuator"/>
         <rdfs:label xml:lang="en">irrigation system</rdfs:label>
         <rdfs:label xml:lang="fr">système d&apos;irrigation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#Lens -->
+
+    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Lens">
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#SensingDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasBrand"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#aperture"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#focalLength"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">lens</rdfs:label>
+        <rdfs:label xml:lang="fr">objectif</rdfs:label>
     </owl:Class>
     
 
@@ -1062,6 +1247,18 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#LiDAR">
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#SensingDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#scanningAngularRange"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#wavelength"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1110,6 +1307,48 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#MultispectralCamera">
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Camera"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#attenuatorFilter"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#focalLength"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#wavelength"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#height"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#pixelSize"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#width"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#wavelength"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">6</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="fr">caméra multispectrale</rdfs:label>
         <rdfs:label xml:lang="en">multispectral camera</rdfs:label>
     </owl:Class>
@@ -1142,15 +1381,6 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#NylonUnit">
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#ElectricalResistanceBlock"/>
         <rdfs:label xml:lang="en">nylon unit</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#Optic -->
-
-    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Optic">
-        <rdfs:label xml:lang="en">optic</rdfs:label>
-        <rdfs:label xml:lang="fr">optique</rdfs:label>
     </owl:Class>
     
 
@@ -1201,6 +1431,17 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#SensingDevice"/>
         <rdfs:label xml:lang="fr">capteur de précipitation</rdfs:label>
         <rdfs:label xml:lang="en">precipitation sensor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#Project -->
+
+    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Project">
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#ExperimentalCondition"/>
+        <rdfs:comment xml:lang="en">PROJECT (e.g. EU or national projects) involves partners that are in charge of experiments performed in one or more local infrastructures.</rdfs:comment>
+        <rdfs:label xml:lang="en">project</rdfs:label>
+        <rdfs:label xml:lang="fr">projet</rdfs:label>
     </owl:Class>
     
 
@@ -1272,6 +1513,31 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#RGBCamera">
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Camera"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasLens"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Lens"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#height"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#pixelSize"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#width"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">RGB camera</rdfs:label>
         <rdfs:label xml:lang="fr">caméra RGB</rdfs:label>
     </owl:Class>
@@ -1294,6 +1560,16 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#SensingDevice"/>
         <rdfs:label xml:lang="fr">capteur de rayonnement</rdfs:label>
         <rdfs:label xml:lang="en">radiation sensor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget -->
+
+    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget">
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Device"/>
+        <rdfs:label xml:lang="fr">Cible Radiométrique</rdfs:label>
+        <rdfs:label xml:lang="en">Radiometric Target</rdfs:label>
     </owl:Class>
     
 
@@ -1358,10 +1634,36 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     
 
 
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#Spectro -->
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#Spectrometer -->
 
-    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Spectro">
+    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Spectrometer">
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#SensingDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#halfFieldOfView"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#maxWavelength"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#minWavelength"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#spectralSamplingInterval"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Spectrometer</rdfs:label>
+        <rdfs:label xml:lang="fr">Spectromètre</rdfs:label>
     </owl:Class>
     
 
@@ -1390,6 +1692,37 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#TIRCamera">
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Camera"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#hasLens"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Lens"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#waveband"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#height"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#pixelSize"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#width"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">IR thermal camera</rdfs:label>
         <rdfs:label xml:lang="fr">caméra infrarouge thermique</rdfs:label>
     </owl:Class>
@@ -1561,16 +1894,6 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     
 
 
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#VNIRCamera -->
-
-    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#VNIRCamera">
-        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Camera"/>
-        <rdfs:label xml:lang="fr">caméra visible et proche infrarouge</rdfs:label>
-        <rdfs:label xml:lang="en">visible and near-infrared camera</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#VNIRImage -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#VNIRImage">
@@ -1607,6 +1930,16 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
         <rdfs:comment xml:lang="en">devices that either transport plants to a given site for phenotyping, or carry sensors in a greenhouse (e.g. conveyor belt, gripping arm, robot) or in the field (e.g. UAV, gantry, field robot). By extension, a vector can also be a group of persons producing manual observations.</rdfs:comment>
         <rdfs:label xml:lang="fr">vecteur</rdfs:label>
         <rdfs:label xml:lang="en">vector</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#VignettingDocument -->
+
+    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#VignettingDocument">
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Document"/>
+        <rdfs:label xml:lang="fr">Fichier de Vignettage</rdfs:label>
+        <rdfs:label xml:lang="en">Vignetting Document</rdfs:label>
     </owl:Class>
     
 
@@ -1719,17 +2052,6 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     
 
 
-    <!-- http://www.phenome-fppn.fr/vocabulary/2018/oepo#Project -->
-
-    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2018/oepo#Project">
-        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#ExperimentalCondition"/>
-        <rdfs:comment xml:lang="en">PROJECT (e.g. EU or national projects) involves partners that are in charge of experiments performed in one or more local infrastructures.</rdfs:comment>
-        <rdfs:label xml:lang="en">project</rdfs:label>
-        <rdfs:label xml:lang="fr">projet</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://www.phenome-fppn.fr/vocabulary/2018/oepo#Rootstock -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2018/oepo#Rootstock">
@@ -1787,6 +2109,34 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#c -->
+
+    <owl:NamedIndividual rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#c">
+        <rdf:type rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Camera"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#tc -->
+
+    <owl:NamedIndividual rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#tc">
+        <rdf:type rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Thermocouple"/>
+        <vocabulary:pixelSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</vocabulary:pixelSize>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Annotations
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -1811,8 +2161,8 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#coverage-006"/>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
-        <rdfs:comment xml:lang="en">The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.</rdfs:comment>
         <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.</rdfs:comment>
         <terms:description xml:lang="en">Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.</terms:description>
         <rdfs:label xml:lang="en">Coverage</rdfs:label>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
@@ -1828,14 +2178,14 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
-        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
         <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
         <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#date-006"/>
         <rdfs:comment xml:lang="en">A point or period of time associated with an event in the lifecycle of the resource.</rdfs:comment>
-        <rdfs:label xml:lang="en">Date</rdfs:label>
         <terms:description xml:lang="en">Date may be used to express temporal information at any level of granularity.  Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].</terms:description>
+        <rdfs:label xml:lang="en">Date</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
         <terms:description xml:lang="en">Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</terms:description>
@@ -1848,13 +2198,13 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#description-006"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/format">
-        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
         <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
         <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
         <rdfs:label xml:lang="en">Format</rdfs:label>
         <rdfs:comment xml:lang="en">The file format, physical medium, or dimensions of the resource.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#format-007"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <terms:description xml:lang="en">Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].</terms:description>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/identifier">
@@ -1869,18 +2219,18 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/language">
         <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
-        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
-        <rdfs:label xml:lang="en">Language</rdfs:label>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#language-007"/>
+        <rdfs:label xml:lang="en">Language</rdfs:label>
         <terms:description xml:lang="en">Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646].</terms:description>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
-        <rdfs:seeAlso rdf:resource="http://www.ietf.org/rfc/rfc4646.txt"/>
         <rdfs:comment xml:lang="en">A language of the resource.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://www.ietf.org/rfc/rfc4646.txt"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/publisher">
-        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#publisher-006"/>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
         <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
         <rdfs:label xml:lang="en">Publisher</rdfs:label>
@@ -1893,17 +2243,17 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
         <terms:description xml:lang="en">Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. </terms:description>
         <rdfs:label xml:lang="en">Relation</rdfs:label>
         <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
-        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
         <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
         <rdfs:comment xml:lang="en">A related resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/rights">
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#rights-006"/>
-        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
-        <terms:description xml:lang="en">Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</terms:description>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <terms:description xml:lang="en">Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</terms:description>
         <rdfs:label xml:lang="en">Rights</rdfs:label>
         <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
         <rdfs:comment xml:lang="en">Information about rights held in and over the resource.</rdfs:comment>
@@ -1928,14 +2278,14 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/type">
-        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#type-006"/>
         <rdfs:comment xml:lang="en">The nature or genre of the resource.</rdfs:comment>
-        <rdfs:label xml:lang="en">Type</rdfs:label>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#type-006"/>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Type</rdfs:label>
         <terms:description xml:lang="en">Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</terms:description>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
-        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
         <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
     </rdf:Description>
     <rdf:Description rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#dateOfLastCalibration">
         <rdfs:label xml:lang="fr">date de la dernière calibration</rdfs:label>
