@@ -840,7 +840,7 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#EuropeanInfrastructure -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#EuropeanInfrastructure">
-        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Infrastucture"/>
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Infrastructure"/>
         <rdfs:comment xml:lang="en">The ESFRI listed project EMPHASIS aims at a synergistic development and long-term operation of plant phenotyping infrastructure in Europe (https://emphasis.plant-phenotyping.eu/) by developing tools and methods for multi-scale phenotyping, allowing one to analyze genotype performance and trait diversity in current and future European environmental conditions.</rdfs:comment>
         <rdfs:label xml:lang="en">euroean infrastructure</rdfs:label>
     </owl:Class>
@@ -1041,9 +1041,9 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
 
 
 
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#Infrastucture -->
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#Infrastructure -->
 
-    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Infrastucture">
+    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Infrastructure">
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#ExperimentalCondition"/>
         <rdfs:label xml:lang="en">infrastructure</rdfs:label>
         <rdfs:label xml:lang="fr">infrastructure</rdfs:label>
@@ -1054,7 +1054,7 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#Installation -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Installation">
-        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Infrastucture"/>
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Infrastructure"/>
         <rdfs:comment xml:lang="en">An INSTALLATION is the elementary level for data acquisition in a specific type of experiments. It stands for other frequently used terms such as ‘platform’, ‘facility’ or others.</rdfs:comment>
         <rdfs:label xml:lang="en">installation</rdfs:label>
         <rdfs:label xml:lang="fr">installation</rdfs:label>
@@ -1104,7 +1104,7 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#LocalInfrastructure -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#LocalInfrastructure">
-        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Infrastucture"/>
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Infrastructure"/>
         <rdfs:comment xml:lang="en">A LOCAL INFRASTRUCTURE is a group of installations located in one site depending on one institution (or more), which share governance committees, a common (or at least highly interoperable) information system, common principles for cost calculation and pricing and a common tool for user access.</rdfs:comment>
         <rdfs:label xml:lang="fr">infrastructure locale</rdfs:label>
         <rdfs:label xml:lang="en">local infrastructure</rdfs:label>
@@ -1165,7 +1165,7 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#NationalInfrastructure -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#NationalInfrastructure">
-        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Infrastucture"/>
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Infrastructure"/>
         <rdfs:comment xml:lang="en">A NATIONAL INFRASTRUCTURE is an organized group of local infrastructures with governance recognised by national authorities (e.g. respective ministry or national structures).</rdfs:comment>
         <rdfs:label xml:lang="fr">infrastructure nationale</rdfs:label>
         <rdfs:label xml:lang="en">national infrastructure</rdfs:label>
