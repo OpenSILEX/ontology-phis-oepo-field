@@ -643,7 +643,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
         <rdfs:comment xml:lang="fr">La valeur doit être dans la liste suivante : Carpet, Paint, Spectralon</rdfs:comment>
         <rdfs:comment xml:lang="en">The value must be in the following list : Carpet, Paint, Spetralon</rdfs:comment>
         <rdfs:label xml:lang="en">Material</rdfs:label>
-        <rdfs:label xml:lang="fr">Matériel</rdfs:label>
+        <rdfs:label xml:lang="fr">Matière</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -2383,8 +2383,8 @@ measured spectral hemispheric directional reflectance percent for each wavelengt
         <rdfs:seeAlso rdf:resource="http://www.ietf.org/rfc/rfc4646.txt"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/publisher">
-        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#publisher-006"/>
         <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#publisher-006"/>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
         <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
         <rdfs:label xml:lang="en">Publisher</rdfs:label>
