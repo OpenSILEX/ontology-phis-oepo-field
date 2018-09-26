@@ -414,6 +414,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
         <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
         <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget"/>
         <rdfs:comment xml:lang="en">BRDF(θ)=P1+P2cos(θ)+1/2*P3(3*cos^2θ−1)+1/2*P4(5*cos^3θ−3*cosθ)</rdfs:comment>
+        <rdfs:comment xml:lang="en">Bidirectional reflectance distribution function</rdfs:comment>
         <rdfs:label xml:lang="en">BRDF P1</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -425,6 +426,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
         <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
         <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget"/>
         <rdfs:comment xml:lang="en">BRDF(θ)=P1+P2cos(θ)+1/2*P3(3*cos^2θ−1)+1/2*P4(5*cos^3θ−3*cosθ)</rdfs:comment>
+        <rdfs:comment xml:lang="en">Bidirectional reflectance distribution function</rdfs:comment>
         <rdfs:label xml:lang="en">BRDF P2</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -436,6 +438,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
         <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
         <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget"/>
         <rdfs:comment xml:lang="en">BRDF(θ)=P1+P2cos(θ)+1/2*P3(3*cos^2θ−1)+1/2*P4(5*cos^3θ−3*cosθ)</rdfs:comment>
+        <rdfs:comment xml:lang="en">Bidirectional reflectance distribution function</rdfs:comment>
         <rdfs:label xml:lang="en">BRDF P3</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -447,6 +450,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
         <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
         <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget"/>
         <rdfs:comment xml:lang="en">BRDF(θ)=P1+P2cos(θ)+1/2*P3(3*cos^2θ−1)+1/2*P4(5*cos^3θ−3*cosθ)</rdfs:comment>
+        <rdfs:comment xml:lang="en">Bidirectional reflectance distribution function</rdfs:comment>
         <rdfs:label xml:lang="en">BRDF P4</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -551,70 +555,9 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     
 
 
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasFigure -->
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasRadiometricTargetMaterial -->
 
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasFigure">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:oneOf>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                        <rdf:first>Circular</rdf:first>
-                        <rdf:rest>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                <rdf:first>Rectangular</rdf:first>
-                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                            </rdf:Description>
-                        </rdf:rest>
-                    </rdf:Description>
-                </owl:oneOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:label xml:lang="en">Figure</rdfs:label>
-        <rdfs:label xml:lang="fr">Forme</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasFigureDiameter -->
-
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasFigureDiameter">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget"/>
-        <rdfs:label xml:lang="en">Circle diameter</rdfs:label>
-        <rdfs:label xml:lang="fr">Diamètre du cercle</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasFigureLength -->
-
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasFigureLength">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget"/>
-        <rdfs:label xml:lang="fr">Longeur du rectangle</rdfs:label>
-        <rdfs:label xml:lang="en">Rectangle length</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasFigureWidth -->
-
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasFigureWidth">
-        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget"/>
-        <rdfs:label xml:lang="fr">Largeur du rectangle</rdfs:label>
-        <rdfs:label xml:lang="en">Rectangle width</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasMaterial -->
-
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasMaterial">
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasRadiometricTargetMaterial">
         <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
         <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget"/>
         <rdfs:range>
@@ -643,7 +586,7 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
         <rdfs:comment xml:lang="fr">La valeur doit être dans la liste suivante : Carpet, Paint, Spectralon</rdfs:comment>
         <rdfs:comment xml:lang="en">The value must be in the following list : Carpet, Paint, Spetralon</rdfs:comment>
         <rdfs:label xml:lang="en">Material</rdfs:label>
-        <rdfs:label xml:lang="fr">Matière</rdfs:label>
+        <rdfs:label xml:lang="fr">Matériel</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -663,6 +606,69 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
         <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Device"/>
         <rdfs:label xml:lang="fr">numéro de série</rdfs:label>
         <rdfs:label xml:lang="en">serial number</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasShape -->
+
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasShape">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Circular</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Rectangular</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="fr">La valeur doit être dans la liste suivante : Circular, Rectangular</rdfs:comment>
+        <rdfs:comment xml:lang="en">The value must be in the following list : Circular, Rectangular</rdfs:comment>
+        <rdfs:label xml:lang="fr">Forme</rdfs:label>
+        <rdfs:label xml:lang="en">Shape</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasShapeDiameter -->
+
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasShapeDiameter">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget"/>
+        <rdfs:label xml:lang="en">Circle diameter</rdfs:label>
+        <rdfs:label xml:lang="fr">Diamètre du cercle</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasShapeLength -->
+
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasShapeLength">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget"/>
+        <rdfs:label xml:lang="fr">Longeur du rectangle</rdfs:label>
+        <rdfs:label xml:lang="en">Rectangle length</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasShapeWidth -->
+
+    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasShapeWidth">
+        <rdfs:subPropertyOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#deviceProperty"/>
+        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#RadiometricTarget"/>
+        <rdfs:label xml:lang="fr">Largeur du rectangle</rdfs:label>
+        <rdfs:label xml:lang="en">Rectangle width</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1891,9 +1897,9 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     
 
 
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#SpectralHemisphericDirectionalReflectanceDocument -->
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#SpectralHemisphericDirectionalReflectanceFile -->
 
-    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#SpectralHemisphericDirectionalReflectanceDocument">
+    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#SpectralHemisphericDirectionalReflectanceFile">
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Document"/>
         <rdfs:comment xml:lang="fr">Fichier texte au format csv suivant :
 1 ligne d’en-tête : première colonne = « id » et colonnes suivantes les longueurs d’onde en nm que l’on peut rencontrer durant les traitements
@@ -1905,8 +1911,8 @@ pourcentage de réflectance mesuré pour chaque longueur d’onde</rdfs:comment>
 separator : tabular
 id : alias
 measured spectral hemispheric directional reflectance percent for each wavelength</rdfs:comment>
-        <rdfs:label xml:lang="fr">Réflectance directionnelle hémisphérique spectrale</rdfs:label>
-        <rdfs:label xml:lang="en">Spectral Hemispheric Directional Reflectance</rdfs:label>
+        <rdfs:label xml:lang="fr">Fichier de réflectance directionnelle hémisphérique spectrale</rdfs:label>
+        <rdfs:label xml:lang="en">Spectral Hemispheric Directional Reflectance file</rdfs:label>
     </owl:Class>
     
 
@@ -2257,34 +2263,6 @@ measured spectral hemispheric directional reflectance percent for each wavelengt
     <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent">
         <rdfs:label xml:lang="en">agent</rdfs:label>
     </owl:Class>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#c -->
-
-    <owl:NamedIndividual rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#c">
-        <rdf:type rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Camera"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#tc -->
-
-    <owl:NamedIndividual rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#tc">
-        <rdf:type rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Thermocouple"/>
-        <vocabulary:pixelSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</vocabulary:pixelSize>
-    </owl:NamedIndividual>
     
 
 
