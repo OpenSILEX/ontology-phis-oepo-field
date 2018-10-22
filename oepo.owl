@@ -1358,8 +1358,6 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Installation">
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Infrastructure"/>
         <rdfs:comment xml:lang="en">An INSTALLATION is the elementary level for data acquisition in a specific type of experiments. It stands for other frequently used terms such as ‘platform’, ‘facility’ or others.</rdfs:comment>
-        <rdfs:label xml:lang="en">Installation</rdfs:label>
-        <rdfs:label xml:lang="fr">Installation</rdfs:label>
         <rdfs:label xml:lang="en">installation</rdfs:label>
         <rdfs:label xml:lang="fr">installation</rdfs:label>
     </owl:Class>
