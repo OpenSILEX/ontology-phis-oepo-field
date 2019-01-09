@@ -248,16 +248,6 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
     
 
 
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasPlot -->
-
-    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasPlot">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Experiment"/>
-        <rdfs:range rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Plot"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasProjectCoordinator -->
 
     <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasProjectCoordinator">
@@ -383,6 +373,17 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
         <rdfs:comment xml:lang="en">Represent the link between a sensing device which measures a variable</rdfs:comment>
         <rdfs:label xml:lang="en">measures</rdfs:label>
         <rdfs:label xml:lang="fr">mesure</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#participatesIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#participatesIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:isDefinedBy>http://www.ontobee.org/ontology/rdf/RO?iri=http://purl.obolibrary.org/obo/RO_0000056</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">participates in</rdfs:label>
+        <rdfs:label xml:lang="fr">participe à</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -532,17 +533,6 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
         <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Project"/>
         <rdfs:label xml:lang="fr">acronyme</rdfs:label>
         <rdfs:label xml:lang="en">has acronym</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#hasAlias -->
-
-    <owl:DatatypeProperty rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#hasAlias">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Plot"/>
-        <rdfs:label>alias</rdfs:label>
-        <rdfs:label xml:lang="fr">alias</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -892,15 +882,6 @@ The Object Ontology is licensed by CC 4.0 (http://creativecommons.org/licenses/b
         <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#Device"/>
         <rdfs:label xml:lang="fr">actionneur</rdfs:label>
         <rdfs:label xml:lang="en">actuator</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.phenome-fppn.fr/vocabulary/2017#AgronomicalObject -->
-
-    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#AgronomicalObject">
-        <rdfs:label xml:lang="en">agronomical object</rdfs:label>
-        <rdfs:label xml:lang="fr">objet agronomique</rdfs:label>
     </owl:Class>
     
 
@@ -1389,7 +1370,7 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#Leaf -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Leaf">
-        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#AgronomicalObject"/>
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#ScientificObject"/>
         <dc:source>skos:closeMatch http://www.ontobee.org/ontology/rdf/PO?iri=http://purl.obolibrary.org/obo/PO_0000036</dc:source>
         <rdfs:comment xml:lang="en">A phyllome vascular system (PO:0025206) that includes the totality of the portions of  vascular tissue in their specific arrangement in a vascular leaf  (PO:0009025). [database_cross_reference:  POC:Ramona_Walls]</rdfs:comment>
         <rdfs:label xml:lang="fr">feuille</rdfs:label>
@@ -1624,7 +1605,7 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#Plant -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Plant">
-        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#AgronomicalObject"/>
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#ScientificObject"/>
         <dc:source>skos:closeMatch http://www.ontobee.org/ontology/rdf/PO?iri=http://purl.obolibrary.org/obo/PO_0000003</dc:source>
         <rdfs:comment xml:lang="en">the continuous organism originating from a single seed, callus, rhizome or any other propagation mean</rdfs:comment>
         <rdfs:label xml:lang="en">plant</rdfs:label>
@@ -1645,7 +1626,7 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#Plot -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Plot">
-        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#AgronomicalObject"/>
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#ScientificObject"/>
         <rdfs:comment>A community of plants located on a defined area of a field.</rdfs:comment>
         <rdfs:label xml:lang="fr">micro parcelle</rdfs:label>
         <rdfs:label xml:lang="en">plot</rdfs:label>
@@ -1828,7 +1809,7 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#Rootstock -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Rootstock">
-        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#AgronomicalObject"/>
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#ScientificObject"/>
         <rdfs:comment xml:lang="en">Grape variety used as the underground portion of a grafted vine onto which the scion is grafted. Bred to provide pest resistance and/or adaptability to unfavorable soil or environmental conditions.</rdfs:comment>
         <rdfs:label xml:lang="fr">porte-greffe</rdfs:label>
         <rdfs:label xml:lang="en">rootstock</rdfs:label>
@@ -1846,10 +1827,19 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     
 
 
+    <!-- http://www.phenome-fppn.fr/vocabulary/2017#ScientificObject -->
+
+    <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#ScientificObject">
+        <rdfs:label xml:lang="en">agronomical object</rdfs:label>
+        <rdfs:label xml:lang="fr">objet agronomique</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#Scion -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Scion">
-        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#AgronomicalObject"/>
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#ScientificObject"/>
         <rdfs:comment xml:lang="en">Is the part of the vine, usually Vitis vinifera, that is grafted on the rootstock and from which wine grapes will be harvested from</rdfs:comment>
         <rdfs:label xml:lang="fr">greffon</rdfs:label>
         <rdfs:label xml:lang="en">scion</rdfs:label>
@@ -1860,7 +1850,7 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#Seed -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Seed">
-        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#AgronomicalObject"/>
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#ScientificObject"/>
         <dc:source>skos:exactMatch http://www.ontobee.org/ontology/rdf/PO?iri=http://purl.obolibrary.org/obo/PO_0009010</dc:source>
         <rdfs:comment xml:lang="en">A multi-tissue plant  structure (PO:0025496) that develops from a plant ovule   (PO:0020003) and has as parts a plant embryo (PO:0009009)  enclosed in a seed coat (PO:0009088). [database_cross_reference: POC:curators]</rdfs:comment>
         <rdfs:label xml:lang="fr">graine</rdfs:label>
@@ -1902,7 +1892,7 @@ Peut définir une zone au sens physique ou théorique</rdfs:comment>
     <!-- http://www.phenome-fppn.fr/vocabulary/2017#Silk -->
 
     <owl:Class rdf:about="http://www.phenome-fppn.fr/vocabulary/2017#Silk">
-        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#AgronomicalObject"/>
+        <rdfs:subClassOf rdf:resource="http://www.phenome-fppn.fr/vocabulary/2017#ScientificObject"/>
         <dc:source>skos:exactMatch http://www.ontobee.org/ontology/rdf/PO?iri=http://purl.obolibrary.org/obo/PO_0006488</dc:source>
         <rdfs:comment xml:lang="en">A collective organ part   structure (PO:0025269) that has as parts an elongated stigma (PO:0009073) with stigma papilla (GO:0090397), and an elongated   style (PO:0009074). [database_cross_reference: MID:21345919][database_cross_reference: POC:Laurel_Cooper]</rdfs:comment>
         <rdfs:label xml:lang="en">silk</rdfs:label>
